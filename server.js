@@ -2,11 +2,13 @@ var express = require('express'),
     stylus = require('stylus'),
     logger = require('morgan'),
     bodyParser = require('body-parser'),
-    favicon = require('serve-favicon');
+    favicon = require('serve-favicon'),
+    mongoose = require('mongoose');
 
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var app = express();
+
 
 function compile(str, path) {
   return stylus(str).set('filename', path);
@@ -26,6 +28,15 @@ app.use(stylus.middleware(
 ));
 
 app.use(express.static(__dirname + '/public'));
+
+mongoose.connect('mongodb://localhost/ontrack');
+var db = mongoose.connection;
+
+// listen to events on mongodb
+db.on('error', console.error.bind(console, 'connection error...'));
+db.once('open', function callback() {
+  console.log('ontrack db opened');
+});
 
 app.get('/partials/:partialPath', function(req, res) {
   res.render('partials/' + req.params.partialPath);
