@@ -1,7 +1,8 @@
 var express = require('express'),
     stylus = require('stylus'),
     logger = require('morgan'),
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    favicon = require('serve-favicon');
 
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -13,6 +14,7 @@ function compile(str, path) {
 
 app.set('views', __dirname + '/server/views');
 app.set('view engine', 'jade');
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -24,6 +26,10 @@ app.use(stylus.middleware(
 ));
 
 app.use(express.static(__dirname + '/public'));
+
+app.get('/partials/:partialPath', function(req, res) {
+  res.render('partials/' + req.params.partialPath);
+})
 
 // route
 app.get('*', function(req, res) {
