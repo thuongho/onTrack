@@ -29,7 +29,12 @@ app.use(stylus.middleware(
 
 app.use(express.static(__dirname + '/public'));
 
-mongoose.connect('mongodb://localhost/ontrack');
+if (env === 'development') {
+  mongoose.connect('mongodb://localhost/ontrack');
+} else {
+  mongoose.connect('mongodb://sam:ontrack098@ds037185.mongolab.com:37185/ontrack');  
+}
+
 var db = mongoose.connection;
 
 // listen to events on mongodb
