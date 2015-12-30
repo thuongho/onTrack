@@ -18,7 +18,7 @@ module.exports = function(config) {
   User.find({}).exec(function(err, collection) {
     if (collection.length === 0) {
       User.create({firstName: 'Sam', lastName: 'Ho', username: 'sam'});
-      User.create({firstName: 'Thuong', lastName: 'Ho', username: 'thuong'});
+      User.create({firstName: 'Thuong', lastName: 'Smith', username: 'thuong'});
       User.create({firstName: 'Cong', lastName: 'Trinh', username: 'cong'});
     }
   })
