@@ -1,3 +1,6 @@
 .panel.panel-primary
   .panel-heading.text-center Goals
-  .panel-body Body Goes Here
+  .panel-body
+    .row(ng-repeat="goal in goals | filter:{completed: false}")
+      .col-md-9 {{ goal.name }}
+      .col-md-3 {{ goal.goalDate | date: 'MMM dd yyyy'}}
