@@ -5,7 +5,7 @@ angular.module('app').config(['$routeProvider', '$locationProvider', function($r
   $locationProvider.html5Mode({enabled: true, requireBase: false});
   $routeProvider
     .when('/', {
-      templateUrl: '/partials/main',
+      templateUrl: '/partials/main/main',
       controller: 'mvMainCtrl'
     });
 }]);
