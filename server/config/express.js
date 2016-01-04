@@ -17,7 +17,11 @@ module.exports = function(app, config) {
   app.use(cookieParser());
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
-  app.use(session({ secret: 'onTrack unicorns' }));
+  app.use(session({ 
+    secret: 'onTrack unicorns',
+    resave: true,
+    saveUninitialized: true
+  }));
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(stylus.middleware(
