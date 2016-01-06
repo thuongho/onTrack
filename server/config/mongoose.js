@@ -15,7 +15,7 @@ module.exports = function(config) {
     username: String,
     salt: String,
     hashed_pwd: String,
-    roles: String
+    roles: [String]
   });
   userSchema.methods = {
     authenticate: function(passwordToMatch) {
