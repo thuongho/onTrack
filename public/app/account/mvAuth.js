@@ -46,4 +46,4 @@ angular.module('app').factory('mvAuth', ['$http', 'mvIdentity', '$q', 'mvUser', 
       }
     }
   };
-}])
+}]);

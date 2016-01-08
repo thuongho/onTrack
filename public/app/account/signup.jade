@@ -14,15 +14,15 @@
         .form-group
           label.col-md-2.control-label(for="fname") First Name
           .col-md-10
-            input.form-control(name="fname", type="fname", placeholder="First Name", ng-model="fname", required)
+            input.form-control(name="fname", type="text", placeholder="First Name", ng-model="fname", required)
         .form-group
           label.col-md-2.control-label(for="lname") Last Name
           .col-md-10
-            input.form-control(name="lname", type="lname", placeholder="Last Name", ng-model="lname", required)
+            input.form-control(name="lname", type="text", placeholder="Last Name", ng-model="lname", required)
         .form-group
           .col-md-10.col-md-offset-2
             .pull-right
               button.btn.btn-primary(ng-click="signup()", ng-disabled="signupForm.$invalid") Submit 
-              &nbsp; 
+               &nbsp; 
               a.btn.btn-default(href="/") Cancel
 
