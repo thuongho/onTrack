@@ -29,6 +29,20 @@ angular.module('app').factory('mvAuth', ['$http', 'mvIdentity', '$q', 'mvUser', 
       return dfd.promise;
     },
 
+    updateCurrentUser: function(newUserData) {
+      var dfd = $q.defer();
+
+      var clone = angular.copy(mvIdentity.currentUser);
+      angular.extend(clone, newUserData);
+      clone.$update().then(function() {
+        mvIdentity.currentUser = clone;
+        dfd.resolve();
+      }, function(response) {
+        dfd.reject(response.data.reason);
+      });
+      return dfd.promies;
+    },
+
     logoutUser: function() {
       var dfd = $q.defer();
       $http.post('/logout', {logout:true}).then(function() {
