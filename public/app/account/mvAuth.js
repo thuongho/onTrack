@@ -40,7 +40,7 @@ angular.module('app').factory('mvAuth', ['$http', 'mvIdentity', '$q', 'mvUser', 
       }, function(response) {
         dfd.reject(response.data.reason);
       });
-      return dfd.promies;
+      return dfd.promise;
     },
 
     logoutUser: function() {

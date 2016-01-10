@@ -8,7 +8,8 @@ angular.module('app').controller('mvProfileCtrl', ['$scope', 'mvAuth', 'mvIdenti
       username: $scope.email,
       firstName: $scope.fname,
       lastName: $scope.lname
-    }
+    };
+    
     if ($scope.password && $scope.password.length > 0) {
       newUserData.password = $scope.password;
     }
