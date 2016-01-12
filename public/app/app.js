@@ -38,6 +38,10 @@ angular.module('app').config(['$routeProvider', '$locationProvider', function($r
     .when('/inspiration', {
       templateUrl: '/partials/track/inspiration',
       controller: 'mvInspirationCtrl'
+    })
+    .when('/inspiration/:id', {
+      templateUrl: '/partials/track/inspiration-details',
+      controller: 'mvInspirationDetailCtrl'
     });
 }]);
 

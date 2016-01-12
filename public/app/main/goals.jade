@@ -2,5 +2,6 @@
   .panel-heading.text-center Goals
   .panel-body
     .row(ng-repeat="goal in goals")
-      .col-md-9 {{ goal.title }}
+      .col-md-9 
+        a(href="/track/{{goal._id}}") {{ goal.title }}
       .col-md-3 {{ goal.endDate | date: 'MMM dd yyyy'}}
