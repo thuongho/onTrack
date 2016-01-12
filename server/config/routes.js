@@ -20,6 +20,10 @@ module.exports = function(app) {
     res.end();
   });
 
+  app.all('/api/*', function(req, res) {
+    res.sendStatus(404);
+  });
+
   app.get('*', function(req, res) {
     res.render('index', {
       bootstrappedUser: req.user

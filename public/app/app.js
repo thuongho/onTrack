@@ -34,6 +34,10 @@ angular.module('app').config(['$routeProvider', '$locationProvider', function($r
       templateUrl: '/partials/account/profile',
       controller: 'mvProfileCtrl',
       resolve: routeRoleChecks.user
+    })
+    .when('/inspiration', {
+      templateUrl: '/partials/track/inspiration',
+      controller: 'mvInspirationCtrl'
     });
 }]);
 
