@@ -5,3 +5,9 @@ exports.getInspirations = function(req, res) {
     res.send(collection);
   })
 };
+
+exports.getInspirationById = function(req, res) {
+  Inspiration.findOne({ _id: req.params.id }).exec(function(err, inspiration) {
+    res.send(inspiration);
+  })
+};

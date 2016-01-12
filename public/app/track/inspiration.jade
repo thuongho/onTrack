@@ -13,5 +13,5 @@
     tbody
       tr(ng-repeat="inspiration in inspirations | filter:searchText | orderBy: sortOrder")
         td 
-          a(href="/track/{{inspiration._id}}") {{ inspiration.title }}
+          a(href="/inspirations/{{inspiration._id}}") {{ inspiration.title }}
         td {{ inspiration.endDate | date }}

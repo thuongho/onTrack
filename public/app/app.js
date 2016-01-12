@@ -35,11 +35,11 @@ angular.module('app').config(['$routeProvider', '$locationProvider', function($r
       controller: 'mvProfileCtrl',
       resolve: routeRoleChecks.user
     })
-    .when('/inspiration', {
+    .when('/inspirations', {
       templateUrl: '/partials/track/inspiration',
       controller: 'mvInspirationCtrl'
     })
-    .when('/inspiration/:id', {
+    .when('/inspirations/:id', {
       templateUrl: '/partials/track/inspiration-details',
       controller: 'mvInspirationDetailCtrl'
     });
