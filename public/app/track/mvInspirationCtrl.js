@@ -1,5 +1,5 @@
-angular.module('app').controller('mvInspirationCtrl', ['$scope', 'mvInspiration', function($scope, mvInspiration) {
-  $scope.inspirations = mvInspiration.query();
+angular.module('app').controller('mvInspirationCtrl', ['$scope', 'mvCachedGoals', function($scope, mvCachedGoals) {
+  $scope.inspirations = mvCachedGoals.query();
 
   $scope.sortOptions = [
     {value: "title", text: "Sort by Title"},
